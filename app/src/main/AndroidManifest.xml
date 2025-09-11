@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Moovit">
         <activity
+            android:name=".Estacoes"
+            android:exported="false"
+            android:label="@string/title_activity_estacoes"
+            android:theme="@style/Theme.Moovit" />
+        <activity
+            android:name=".Horarios"
+            android:exported="false"
+            android:label="@string/title_activity_horarios"
+            android:theme="@style/Theme.Moovit" />
+        <activity
+            android:name=".Direcoes"
+            android:exported="false"
+            android:label="@string/title_activity_direcoes"
+            android:theme="@style/Theme.Moovit" />
+        <activity
             android:name=".TelaInicial"
             android:exported="false"
             android:label="@string/title_activity_tela_inicial"

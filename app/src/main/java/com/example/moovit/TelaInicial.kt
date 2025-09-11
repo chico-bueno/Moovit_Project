@@ -35,12 +35,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 
-class MainActivity2 : ComponentActivity() {
+class TelaInicial : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-//            TelaTransporte()
             TelaPrincipal()
         }
     }
