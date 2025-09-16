@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Moovit">
         <activity
+            android:name=".Navigation"
+            android:exported="false"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/Theme.Moovit" />
+        <activity
             android:name=".Estacoes"
             android:exported="false"
             android:label="@string/title_activity_estacoes"

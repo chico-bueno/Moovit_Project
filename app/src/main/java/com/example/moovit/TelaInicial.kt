@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,10 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 
 class TelaInicial : ComponentActivity() {
@@ -40,14 +42,14 @@ class TelaInicial : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TelaPrincipal()
+
         }
     }
 }
 
-@Preview
+
 @Composable
-fun TelaPrincipal() {
+fun TelaPrincipal(navController: NavHostController) {
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.Black)
@@ -59,7 +61,7 @@ fun TelaPrincipal() {
                 .padding(bottom = 90.dp)
         ) {
             Pesquisa()
-            Frequentes()
+            Frequentes(navController = navController)
             FavoritosCasa()
             FavoritoTrabalho()
             FavoritoDestino()
@@ -67,7 +69,8 @@ fun TelaPrincipal() {
 
         Rodape(
             modifier = Modifier
-                .align(Alignment.BottomCenter)
+                .align(Alignment.BottomCenter),
+            navController = navController,
         )
     }
 }
@@ -110,14 +113,16 @@ fun Pesquisa() {
 
 
 @Composable
-fun Frequentes(){
+fun Frequentes(navController: NavHostController){
     Spacer(modifier = Modifier.width(20.dp))
     Card(
         colors = CardDefaults.cardColors(Color.DarkGray),
         modifier = Modifier
             .height(200.dp)
             .padding(10.dp)
-
+            .clickable {
+                    navController.navigate("Direçoes")
+    }
     ) {
 
         Row(
@@ -147,14 +152,17 @@ fun Frequentes(){
                         .height(35.dp),
                     color = Color.LightGray,
                 ) {
-                    Text(text = "➡ 380 Detran ➡ 👤",
-                        style = MaterialTheme
-                            .typography
-                            .titleLarge,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier
-                            .width(100.dp)
-                    )
+
+                        Text(
+                            text = "➡ 380 Detran ➡ 👤",
+                            style = MaterialTheme
+                                .typography
+                                .titleLarge,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .width(100.dp)
+                        )
+
 
                 }
             }
@@ -284,37 +292,26 @@ fun FavoritoDestino(){
 }
 
 @Composable
-fun Rodape(modifier: Modifier = Modifier) {
-    Row(
+fun Rodape(modifier: Modifier, navController: NavHostController) {
+    Box(
         modifier = modifier
             .fillMaxWidth()
             .height(80.dp)
-            .padding(vertical = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .padding(vertical = 16.dp)
     ) {
-        listOf("Direções", "Estações", "Linhas", "Passagens").forEach { texto ->
-            Card(
-                colors = CardDefaults.cardColors(Color.DarkGray),
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                shape = RoundedCornerShape(8.dp),
-                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-            ) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = texto,
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = Color.White,
-                        fontSize = 16.sp,
-                    )
-                }
-            }
+        Button(
+            onClick = {navController.navigate("Estaçoes") },
+            modifier = modifier
+                .fillMaxSize(),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.DarkGray),
+            elevation = ButtonDefaults.buttonElevation(defaultElevation = 4.dp)
+        ) {
+            Text(
+                text = "Estações",
+                style = MaterialTheme.typography.bodyLarge,
+                color = Color.White,
+                fontSize = 18.sp
+            )
         }
     }
 }
-

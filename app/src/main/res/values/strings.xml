@@ -4,4 +4,5 @@
     <string name="title_activity_direcoes">Direcoes</string>
     <string name="title_activity_horarios">Horarios</string>
     <string name="title_activity_estacoes">Estacoes</string>
+    <string name="title_activity_navigation">Navigation</string>
 </resources>

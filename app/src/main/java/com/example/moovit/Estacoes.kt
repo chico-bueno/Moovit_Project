@@ -18,16 +18,18 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
-class Estacoes : ComponentActivity() {
+class Estacoes() : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent { TelaEstacoes() }
+        setContent {
+            TelaEstacoes(navController = rememberNavController())
+        }
     }
 }
 
@@ -45,9 +47,8 @@ data class EstacaoCompleta(
     val tempoAPe: String,
     val linhas: List<LinhaOnibus>
 )
-@Preview
 @Composable
-fun TelaEstacoes() {
+fun TelaEstacoes(navController: NavHostController) {
     val estacoes = listOf(
         EstacaoCompleta(
             "Praça Rui Barbosa", "1 min a pé", "1 min",

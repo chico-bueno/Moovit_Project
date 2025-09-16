@@ -33,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 class Direcoes : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +44,8 @@ class Direcoes : ComponentActivity() {
         }
     }
 }
-@Preview
 @Composable
-fun TelaTransporte() {
+fun TelaTransporte(navController: NavHostController) {
 
     Column(
         modifier = Modifier
@@ -55,7 +55,7 @@ fun TelaTransporte() {
     ) {
 
         Text(
-            text = "🚌 Transporte",
+            text = "🚌 Direções",
             color = Color.White,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
