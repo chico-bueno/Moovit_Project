@@ -33,6 +33,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
@@ -121,7 +122,7 @@ fun Frequentes(navController: NavHostController){
             .height(200.dp)
             .padding(10.dp)
             .clickable {
-                    navController.navigate("Direçoes")
+                    navController.navigate("Horarios")
     }
     ) {
 

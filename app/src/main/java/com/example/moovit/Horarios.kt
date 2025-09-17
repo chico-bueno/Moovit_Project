@@ -21,13 +21,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 class Horarios : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TelaHorarios()
+            TelaHorarios(navController = rememberNavController())
         }
     }
 }
@@ -42,9 +44,9 @@ data class RotaHorario(
     val iconeCor: Color = Color(0xFFFF5722)
 )
 
-@Preview
+
 @Composable
-fun TelaHorarios() {
+fun TelaHorarios(navController: NavHostController) {
     val rotas = listOf(
         RotaHorario("21 min", "10:42", "Uber", "Táxi/Uber", "Saída em 2 min", "Chegada às 10:42", Color.Black),
         RotaHorario("28 min", "10:50", "R$ 6,00", "303 Centenário", "Praça Rui Barbosa", "Terminal Centenário"),

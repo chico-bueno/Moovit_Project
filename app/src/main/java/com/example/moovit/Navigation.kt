@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.myapplication.TelaHorarios
 
 @Composable
 fun AppNavigation(){
@@ -15,7 +16,7 @@ fun AppNavigation(){
 
         composable("TelaInicial") { TelaPrincipal(navController) }
         composable("Estaçoes") { TelaEstacoes(navController) }
-//        composable("Horarios") { TelaHorarios(navController) }
+        composable("Horarios") { TelaHorarios(navController) }
         composable("Direçoes"){ TelaTransporte(navController) }
 
 
