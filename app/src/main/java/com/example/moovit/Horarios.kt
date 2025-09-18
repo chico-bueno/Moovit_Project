@@ -1,10 +1,11 @@
-package com.example.myapplication
+package com.example.moovit
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -50,7 +50,7 @@ data class RotaHorario(
 fun TelaHorarios(navController: NavHostController) {
     val rotas = listOf(
         RotaHorario("21 min", "10:42", "Uber", "Táxi/Uber", "Saída em 2 min", "Chegada às 10:42", Color.Black),
-        RotaHorario("28 min", "10:50", "R$ 6,00", "303 Centenário", "Praça Rui Barbosa", "Terminal Centenário"),
+        RotaHorario("28 min", "10:50", "R$ 6,00", "380 Detran", "Praça Rui Barbosa", "Terminal Centenário"),
         RotaHorario("20 min", "10:50", "R$ 6,00", "366 Itupã", "Praça General Osório", "Chegada 10:50"),
         RotaHorario("24 min", "10:45", "R$ 6,00", "311 Interbairros", "Praça Rui Barbosa", "Chegada 10:45")
     )
@@ -66,7 +66,7 @@ fun TelaHorarios(navController: NavHostController) {
             Modifier.fillMaxSize().padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(rotasFiltradas) { CardHorario(it) }
+            items(rotasFiltradas) { CardHorario(it, navController= navController) }
         }
     }
 }
@@ -122,11 +122,14 @@ fun HeaderHorarios(textoPesquisa: String, onTextoMudou: (String) -> Unit) {
 }
 
 @Composable
-fun CardHorario(rota: RotaHorario) {
+fun CardHorario(rota: RotaHorario, navController: NavHostController) {
     Card(
         colors = CardDefaults.cardColors(Color(0xFF1C1C1C)),
         shape = RoundedCornerShape(12.dp),
         modifier = Modifier.fillMaxWidth()
+            .clickable {
+                navController.navigate("Direçoes")
+            }
     ) {
         Column(Modifier.padding(16.dp)) {
             // Linha de tempo e chegada

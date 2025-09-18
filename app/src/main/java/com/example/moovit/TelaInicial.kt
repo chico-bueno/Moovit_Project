@@ -33,7 +33,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
@@ -65,7 +64,7 @@ fun TelaPrincipal(navController: NavHostController) {
             Frequentes(navController = navController)
             FavoritosCasa()
             FavoritoTrabalho()
-            FavoritoDestino()
+            FavoritoDestino(navController = navController)
         }
 
         Rodape(
@@ -122,8 +121,8 @@ fun Frequentes(navController: NavHostController){
             .height(200.dp)
             .padding(10.dp)
             .clickable {
-                    navController.navigate("Horarios")
-    }
+                    navController.navigate("Direçoes")
+            }
     ) {
 
         Row(
@@ -256,12 +255,15 @@ fun FavoritoTrabalho(){
 
 @Composable
 
-fun FavoritoDestino(){
+fun FavoritoDestino(navController: NavHostController) {
     Card(
         colors = CardDefaults.cardColors(Color.DarkGray),
         modifier = Modifier
             .height(200.dp)
             .padding(10.dp)
+            .clickable {
+                navController.navigate("Horarios")
+            }
 
     ) {
         Column(
