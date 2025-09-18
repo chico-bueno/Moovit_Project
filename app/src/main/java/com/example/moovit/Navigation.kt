@@ -17,9 +17,6 @@ fun AppNavigation(){
         composable("Estaçoes") { TelaEstacoes(navController) }
         composable("Horarios") { TelaHorarios(navController) }
         composable("Direçoes"){ TelaTransporte(navController) }
-
-
     }
-
 }
 

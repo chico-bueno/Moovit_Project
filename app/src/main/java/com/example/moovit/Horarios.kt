@@ -23,14 +23,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 
-class Horarios : ComponentActivity() {
+class Horarios(onBack: () -> Boolean) : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TelaHorarios(navController = rememberNavController())
         }
     }
 }
@@ -61,7 +59,7 @@ fun TelaHorarios(navController: NavHostController) {
     }
 
     Column(Modifier.fillMaxSize().background(Color.Black)) {
-        HeaderHorarios(pesquisa) { pesquisa = it }
+        HeaderHorarios(pesquisa, { pesquisa = it }, navController = navController)
         LazyColumn(
             Modifier.fillMaxSize().padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -72,16 +70,18 @@ fun TelaHorarios(navController: NavHostController) {
 }
 
 @Composable
-fun HeaderHorarios(textoPesquisa: String, onTextoMudou: (String) -> Unit) {
+fun HeaderHorarios(
+    textoPesquisa: String,
+    onTextoMudou: (String) -> Unit,
+    navController: NavHostController,
+) {
     Surface(color = Color(0xFF2D2D2D), modifier = Modifier.fillMaxWidth()) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(
-                onClick = {
-
-                }
+                { navController.navigate("TelaInicial") }
             ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
