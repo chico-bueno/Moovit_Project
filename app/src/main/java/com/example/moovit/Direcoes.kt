@@ -30,7 +30,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -44,47 +43,41 @@ class Direcoes : ComponentActivity() {
         }
     }
 }
+
 @Composable
 fun TelaTransporte(navController: NavHostController) {
-
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
             .padding(16.dp)
     ) {
-
         Text(
             text = "🚌 Direções",
             color = Color.White,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 20.dp)
+            modifier = Modifier.padding(bottom = 16.dp)
         )
 
-
         Card(
-            colors = CardDefaults.cardColors(containerColor = Color.DarkGray),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFF1C1C1C)),
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 16.dp)
+                .padding(bottom = 12.dp)
         ) {
             Column(
                 modifier = Modifier.padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
                 Text(
                     text = "⏱️ 18 minutos | 💰 R$ 6,00",
                     color = Color.White,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
                 )
-
                 Spacer(modifier = Modifier.height(12.dp))
-
-
                 Text(
                     text = "🚌 Linha 380 - DETRAN",
                     color = Color(0xFFFF9500),
@@ -94,22 +87,19 @@ fun TelaTransporte(navController: NavHostController) {
             }
         }
 
-
         Card(
-            colors = CardDefaults.cardColors(containerColor = Color.DarkGray),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFF1C1C1C)),
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 16.dp)
+                .padding(bottom = 12.dp)
         ) {
             Row(
                 modifier = Modifier.padding(16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(text = "🟠", fontSize = 20.sp)
-
                 Spacer(modifier = Modifier.width(12.dp))
-
                 Column {
                     Text(
                         text = "📍 Praça Gen. Osório",
@@ -127,20 +117,18 @@ fun TelaTransporte(navController: NavHostController) {
         }
 
         Card(
-            colors = CardDefaults.cardColors(containerColor = Color.DarkGray),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFF1C1C1C)),
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 20.dp)
+                .padding(bottom = 12.dp)
         ) {
             Row(
                 modifier = Modifier.padding(16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(text = "🚌", fontSize = 24.sp)
-
                 Spacer(modifier = Modifier.width(12.dp))
-
                 Column {
                     Text(
                         text = "380 DETRAN",
@@ -156,12 +144,13 @@ fun TelaTransporte(navController: NavHostController) {
                 }
             }
         }
+
         Card(
-            colors = CardDefaults.cardColors(containerColor = Color.DarkGray),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFF1C1C1C)),
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 16.dp)
+                .padding(bottom = 12.dp)
         ) {
             Column(
                 modifier = Modifier.padding(16.dp),
@@ -173,9 +162,7 @@ fun TelaTransporte(navController: NavHostController) {
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
                 )
-
                 Spacer(modifier = Modifier.height(12.dp))
-
                 Text(
                     text = "🚌 Linha 140 - Vila Esperança",
                     color = Color(0xFFFF9500),
@@ -185,12 +172,11 @@ fun TelaTransporte(navController: NavHostController) {
             }
         }
 
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
-                .clip(RoundedCornerShape(8.dp))
+                .clip(RoundedCornerShape(12.dp))
                 .background(Color(0xFF2E2E2E)),
             contentAlignment = Alignment.Center
         ) {
@@ -198,13 +184,13 @@ fun TelaTransporte(navController: NavHostController) {
                 Icon(
                     imageVector = Icons.Default.Place,
                     contentDescription = "Mapa Ilustrativo",
-                    tint = Color.LightGray,
+                    tint = Color.Gray,
                     modifier = Modifier.size(48.dp)
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = "Visual do mapa aqui",
-                    color = Color.LightGray,
+                    color = Color.Gray,
                     fontSize = 14.sp
                 )
             }
@@ -212,16 +198,13 @@ fun TelaTransporte(navController: NavHostController) {
 
         Spacer(modifier = Modifier.weight(1f))
 
-
         Button(
-            onClick = {
-
-            },
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue),
+            onClick = { },
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF5722)),
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp)
+                .height(56.dp)
         ) {
             Text(
                 text = "🚀 Começar Viagem",
